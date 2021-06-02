@@ -1,42 +1,34 @@
+'use strict'
+
 const consoleLog = document.getElementById('console_two');
 const consoleBase = document.getElementById('console_one');
 
-function getPosition(keepPositions, item, type) {
-    const Result = keepPositions.filter(r => r.word == item);
-    const set = Result.length > 0 ? Result[0] : 0;
-    if (set.word !== undefined && set.position !== undefined) {
-        return type == true ? set.position : set.word;
-    }
+const checkSpecialsChars = (find) => {
+    let specialChars = "<>@!#$%^&*()_+[]{}?:;";
+    return specialChars.search(find) == -1 ? true : false;
 }
 
-function reverseObjects(Objects, keepPositions) {
-    let newObjects = [];
-    Objects = Objects.reverse();
-    [...Objects].map(async (r, i) => {
-        let u = getPosition(keepPositions, r, false);
-        let nIndex = getPosition(keepPositions, r, true);
-        r == u && r !== undefined ? newObjects[nIndex - 1] = u.toString() : newObjects[i] = r.toString();
-    });
-    return newObjects.filter(x => x);
+const detectIndex = function(str) {
+    return [...str].reduce((inObj, iTem, i) => {
+        let find = iTem.toString();
+        checkSpecialsChars(find) ? inObj.normal.push(i) : inObj.specials.push(i);
+        return inObj;
+    }, { normal: [], specials: [] })
+};
+
+
+function revertCustom(Array) {
+    let storeObjs = detectIndex(Array);
+    return [...Array].reduce((rOrder, a) => {
+        let find = a.toString();
+        checkSpecialsChars(find) ? rOrder[storeObjs.normal.pop()] = a : rOrder[storeObjs.specials.shift()] = a;
+        return rOrder;
+    }, []).join(',');
 }
 
 
 (function () {
-    const keep = [{
-            "word": "%",
-            "position": 14
-        },
-        {
-            "word": "$",
-            "position": 6
-        },
-        {
-            "word": "&",
-            "position": 2
-        }
-    ];
     const Objects = ['n', 2, '&', 'a', 'l', 9, '$', 'q', 47, 'i', 'a', 'j', 'b', 'z', '%', 8];
-    const rs = reverseObjects(Objects, keep);
     consoleBase.innerText = JSON.stringify(Objects);
-    consoleLog.innerText = JSON.stringify(rs);
+    consoleLog.innerText = JSON.stringify(revertCustom(Objects).split(','));
 })();
