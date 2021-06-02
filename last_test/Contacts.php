@@ -134,7 +134,7 @@ class Model
 
     public function pull_set_duplicates($post = '')
     {
-
+        #HI     
         if ($post != '') {
             $fileName = 'contacts.json';
             $datos_clientes = file_get_contents($fileName);
