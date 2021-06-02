@@ -146,7 +146,7 @@ class Model
                     $arrayContacts[$nObj] = array('fistName' => $row['fistName'],
                         'lastName' => $row['lastName'],
                         'email' => $row['email'],
-                        'message' => $message,
+                        'message' => $row['message']
                     );
                 }
 
