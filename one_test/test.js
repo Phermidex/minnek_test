@@ -4,7 +4,7 @@ const consoleLog = document.getElementById('console_two');
 const consoleBase = document.getElementById('console_one');
 
 const checkSpecialsChars = (find) => {
-    let specialChars = "<>@!#$%^&*()_+[]{}?:;";
+    let specialChars = "<>@!#$%^&*\()_+[]{}?/:;";
     return specialChars.search(find) == -1 ? true : false;
 }
 
