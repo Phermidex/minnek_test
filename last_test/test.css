@@ -1,0 +1,66 @@
+h1.text-center.text-primary.bg-gray {
+    color: #fff;
+    background: #000000;
+    padding: 3pc;
+}
+
+.container {
+    flex-flow: column;
+    max-width: 900px;
+    margin: auto;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.col-md-8 {
+    margin: auto;
+    width: 90%;
+}
+
+table.table {
+    width: 100%;
+    text-align: center;
+}
+
+.col-md-8.alert.alert-danger {
+    width: 100%;
+    padding: 10px;
+    background: #ffc107;
+    font-size: 2rem;
+    margin-top: 31px;
+}
+
+.col-md-8.alert.alert-warning {
+    width: 100%;
+    padding: 10px;
+    background: #cddc39;
+    color: #020202;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 31px;
+}
+
+.col-md-8.alert.alert-success {
+    width: 100%;
+    padding: 10px;
+    background: #4caf50;
+    color: #020202;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 31px;
+}
+
+.card.col-md-3 {
+    margin-top: 10px;
+    background: bisque;
+    padding: 10px;
+    color: #3f51b5;
+}
+
+thead {
+    background: #080808;
+    color: #fff;
+}
