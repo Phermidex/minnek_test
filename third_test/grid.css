@@ -1,0 +1,52 @@
+section.css__grid div {
+    box-shadow: 0px 3px 5px 3px #0000000d;
+    padding: 15px;
+}
+
+section.css__grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 1000px;
+    margin: auto;
+}
+
+.css__grid span {
+  font-size: 18px;
+  color: blue;
+  font-weight: bold;
+}
+
+@media (max-width: 1025px) {
+    section.css__grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+}
+
+@media (max-width: 457px) {
+    section.css__grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "four"
+            "three"
+            "two"
+            "one";
+        width: 100%;
+    }
+
+    .one {
+        grid-area: one;
+    }
+
+    .two {
+        grid-area: two;
+    }
+
+    .three {
+        grid-area: three;
+    }
+
+    .four {
+        grid-area: four;
+    }
+}
